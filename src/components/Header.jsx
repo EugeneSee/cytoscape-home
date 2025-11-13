@@ -126,7 +126,6 @@ export function Header() {
                             <MobileNavLink href="/#genes">Start with a gene list (1+)</MobileNavLink>
                             <MobileNavLink href="/#networks">Start with a network</MobileNavLink>
                             <MobileNavLink href="/#apps">Apps</MobileNavLink>
-                            <MobileNavLink href="/#citations">Citations</MobileNavLink>
                             <MobileNavLink href="/#faq">FAQ</MobileNavLink>
                           </div>
                           <div className="mt-6 text-right">
