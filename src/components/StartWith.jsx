@@ -1,7 +1,7 @@
 import { Button } from '@/components/base/Button'
 import { HoverPopover } from '@/components/base/HoverPopover'
 import { MagnifyingGlassIcon, ShareIcon, PlayIcon, ArrowsRightLeftIcon } from '@heroicons/react/20/solid'
-import { CursorArrowRaysIcon, CpuChipIcon, CubeTransparentIcon } from '@heroicons/react/20/solid'
+import { ArrowTopRightOnSquareIcon, CursorArrowRaysIcon, CpuChipIcon, CubeTransparentIcon } from '@heroicons/react/20/solid'
 
 
 const genesFeatures = [
@@ -66,6 +66,18 @@ const networkFeatures = [
   }
 ]
 
+const LearnMoreLinkOut = ({ href, ariaLabel='external link', children="Learn more" }) => (
+  <a
+    href={href}
+    aria-label={ariaLabel}
+    target="_blank"
+    rel="noreferrer"
+    className="group inline-flex items-top ml-1 font-extralight underline underline-offset-2 decoration-gray-500 text-gray-500 hover:text-gray-200 hover:decoration-gray-200">
+    {children}
+    <ArrowTopRightOnSquareIcon className="w-3 h-3 ml-1 mt-1 fill-gray-500 group-hover:fill-gray-200" />
+  </a>
+)
+
 function Section({
   id,
   tagLine,
@@ -96,15 +108,17 @@ function Section({
                   <feature.icon aria-hidden="true" className="absolute top-1 left-0 size-6 text-[#a3a3a3]" />
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-sm">{feature.description}</dd>
+                <dd className="mt-2 text-sm">
+                  {feature.description} <LearnMoreLinkOut href={feature.tutorialLink} />
+                </dd>
                 <dd className="mt-2 flex items-center">
-                  <a href={feature.tutorialLink} target="_blank" rel="noreferrer">
+                  <a href={feature.toolLink} target="_blank" rel="noreferrer">
                     <Button
                       variant="solid"
                       color="gray"
                       className="!font-light !text-gray-300 hover:!text-white hover:!bg-white/20 active:!text-gray-400 active:!bg-white/10"
                     >
-                      <span className="text-center">Learn more</span>
+                      <span className="text-center">Use {feature.tool}</span>
                     </Button>
                   </a>
                   {/* <HoverPopover
