@@ -146,7 +146,7 @@ export function StartWith() {
       <Section
         id="genes"
         tagLine="Just paste your genes"
-        title="Start with a gene list (1+)"
+        title="Start with a gene list"
         description="With either your gene list or your genomics data, you're just a few clicks away from finding relevant information and analyses for your research."
         features={genesFeatures}
         className="border-b border-gray-600"
