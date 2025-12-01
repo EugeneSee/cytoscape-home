@@ -230,12 +230,20 @@ const NDExCard = ({ genes }) => {
 
   const href = `https://www.ndexbio.org/index.html#/search?searchType=All&searchString=${genes.join('%20')}&searchTermExpansion=false`
 
+  const getCaption = () => {
+    if (!data || !data.networks?.length) {
+      return 'No results'
+    }
+    const prefix = data.networks.length < data.numFound ? 'Top ' : ''
+    return `${prefix}${data.networks.length} results`
+  }
+
   return (
     <Card
       logo={<NDExLogo className="h-8 w-8" />}
       title="NDEx"
       url={href}
-      caption={data && data.networks?.length > 0 ? `${data.networks.length < data.numFound ? 'Top ' : '' }${data.networks.length} results` : 'No results'}
+      caption={getCaption()}
       isLoading={isFetching}
       error={error}
       className="lg:max-w-3xl"
