@@ -1,3 +1,5 @@
+export const HUMAN_TAXON_ID = '9606'
+
 export const geneManiaOrganisms = [
   {
     id: 1,

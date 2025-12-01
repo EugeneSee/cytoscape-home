@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import _ from 'lodash'
 import { useQuery } from '@tanstack/react-query'
 import { createMyGeneInfoQueryOptions } from '@/app/shared/queryOptions'
-import { geneManiaOrganisms, parseGeneList } from '@/app/shared/common'
+import { geneManiaOrganisms, parseGeneList, HUMAN_TAXON_ID } from '@/app/shared/common'
 import { SelectMenu } from '@/components/base/SelectMenu'
 import { LoadingMessage } from '@/components/base/Loading'
 
@@ -123,10 +123,10 @@ export function GeneWizard({ step, initialSearchText, setTotalSteps, setTitle, o
       // ...and set the initial organism index to the top count
       orgRef.current = filteredOrganisms.find(org => org.taxon === taxidCounts[0].taxid)
       // ...but only if its count is higher than the human's count; otherwise, set it to human (9606)
-      if (!orgRef.current || orgRef.current.taxon !== '9606') {
-        const humanCount = taxidCounts.find(item => item.taxid === '9606')?.count || 0
+      if (!orgRef.current || orgRef.current.taxon !== HUMAN_TAXON_ID) {
+        const humanCount = taxidCounts.find(item => item.taxid === HUMAN_TAXON_ID)?.count || 0
         if (humanCount >= (taxidCounts[0]?.count || 0)) {
-          orgRef.current = filteredOrganisms.find(org => org.taxon === '9606') // Human
+          orgRef.current = filteredOrganisms.find(org => org.taxon === HUMAN_TAXON_ID) // Human
         }
       }
       if (!orgRef.current) {
@@ -137,7 +137,7 @@ export function GeneWizard({ step, initialSearchText, setTotalSteps, setTitle, o
       setInitialOrganismIndex(filteredOrganisms.findIndex(org => org.taxon === orgRef.current?.taxon))
     } else {
       // If no valid taxids, set the initial organism to human
-      const initialOrg = geneManiaOrganisms.find(org => org.taxon === '9606') // Human
+      const initialOrg = geneManiaOrganisms.find(org => org.taxon === HUMAN_TAXON_ID) // Human
       orgRef.current = initialOrg
       setOrganisms(geneManiaOrganisms)
       setInitialOrganismIndex(geneManiaOrganisms.findIndex(org => org.taxon === initialOrg.taxon))
