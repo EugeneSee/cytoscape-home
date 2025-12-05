@@ -124,10 +124,9 @@ export function Header() {
                           data-testid="mobile-menu"
                         >
                           <div className="space-y-4">
-                            <MobileNavLink href="/#genes">Start with a gene list (1+)</MobileNavLink>
+                            <MobileNavLink href="/#genes">Start with a gene list</MobileNavLink>
                             <MobileNavLink href="/#networks">Start with a network</MobileNavLink>
                             <MobileNavLink href="/#apps">Apps</MobileNavLink>
-                            <MobileNavLink href="/#citations">Citations</MobileNavLink>
                             <MobileNavLink href="/#faq">FAQ</MobileNavLink>
                           </div>
                           <div className="mt-6 text-right">

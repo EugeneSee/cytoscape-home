@@ -8,10 +8,9 @@ export function NavLinks() {
   let timeoutRef = useRef(null)
 
   return [
-    ['Start with a gene list (1+)', '/#genes'],
+    ['Start with a gene list', '/#genes'],
     ['Start with a network', '/#networks'],
     ['Apps', '/#apps'],
-    ['Citations', '/#citations'],
     ['FAQ', '/#faq'],
   ].map(([label, href], index) => (
     <a
