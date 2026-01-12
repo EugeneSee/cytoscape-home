@@ -121,12 +121,12 @@ export function Header() {
                             transition: { duration: 0.2 },
                           }}
                           className="absolute inset-x-0 top-0 z-0 origin-top rounded-b-2xl bg-gray-50 px-6 pb-6 pt-32 shadow-2xl shadow-gray-900/20"
+                          data-testid="mobile-menu"
                         >
                           <div className="space-y-4">
-                            <MobileNavLink href="/#genes">Start with a gene list (1+)</MobileNavLink>
+                            <MobileNavLink href="/#genes">Start with a gene list</MobileNavLink>
                             <MobileNavLink href="/#networks">Start with a network</MobileNavLink>
                             <MobileNavLink href="/#apps">Apps</MobileNavLink>
-                            <MobileNavLink href="/#citations">Citations</MobileNavLink>
                             <MobileNavLink href="/#faq">FAQ</MobileNavLink>
                           </div>
                           <div className="mt-6 text-right">

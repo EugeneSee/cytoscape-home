@@ -8,6 +8,12 @@ const LinkOut = ({ href, ariaLabel='external link', children }) => (
   </a>
 )
 
+const Link = ({ href, children }) => (
+  <a href={href} className="text-gray-900 underline">
+    {children}
+  </a>
+)
+
 const Citation = ({ href, className, children }) => {
   className = clsx('block whitespace-pre-wrap text-xs', className)
 
@@ -23,101 +29,111 @@ const Citation = ({ href, className, children }) => {
 const faqs = [
   [
     {
-      question: 'What is the Cytoscape Ecosystem?',
+      question: 'What is Cytoscape?',
       answer: <>
-        The Cytoscape Ecosystem is a suite of software tools and resources designed for network biology analysis and visualisation.
+        Cytoscape is an ecosystem of software tools and resources designed for network biology analysis and visualisation.
         It includes the popular desktop application <LinkOut href="https://cytoscape.org/">Cytoscape</LinkOut>, 
         the web-based version of Cytoscape &#40;<LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut>&#41;, 
-        other web-based applications, and tools that extend Cytoscape&apos;s functionality and accessibility.
+        and other web-based applications and tools that extend Cytoscape&apos;s functionality and accessibility.
       </>,
     },
     {
-      question: 'What are the key components of the Cytoscape Ecosystem?',
+      question: 'What are the key components of Cytoscape?',
       answer: <>
-        The key components of the Cytoscape Ecosystem are: 
+        The key components are: 
         the <LinkOut href="https://cytoscape.org/">Cytoscape Desktop</LinkOut> and <LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut> applications 
         for network analysis and visualization, and associated <LinkOut href="https://apps.cytoscape.org/">apps</LinkOut> that extend their functionality;&nbsp;
-        <LinkOut href="https://www.ndexbio.org/">NDEx Cloud Storage</LinkOut> for accessing, sharing and publishing your network models; 
+        <LinkOut href="https://www.ndexbio.org/">NDEx Cloud Storage</LinkOut> for accessing, sharing and publishing networks; 
         web applications that extend Cytoscape&apos;s capabilities and cater to specific workflows &#40;<LinkOut href="https://enrichmentmap.org/">EnrichmentMap</LinkOut>&#41;; 
-        web services for analysis or data storage functions &#40;<LinkOut href="https://genemania.org/">GeneMANIA</LinkOut>&#41;; 
-        web UI components and web analysis libraries;&nbsp;
-        <LinkOut href="https://automation.cytoscape.org/">interactive notebooks</LinkOut> offering flexible environments for computational biologists; 
+        web services for analysis of gene function &#40;<LinkOut href="https://genemania.org/">GeneMANIA</LinkOut>&#41;;&nbsp;
+        <LinkOut href="https://automation.cytoscape.org/">interactive notebooks</LinkOut> for computational biologists; 
         platforms for community contributions to network biology &#40;<LinkOut href="https://www.wikipathways.org/">WikiPathways</LinkOut>&#41;; 
-        a JSON exchange format for network models &#40;<LinkOut href="https://cytoscape.org/cx/">CX2</LinkOut>&#41;; 
-        and tools and training materials.
+        the <LinkOut href="https://cytoscape.org/cx/">CX2</LinkOut> JSON exchange format for networks; 
+        and training materials.
       </>,
     },
     {
-      question: 'What are the main benefits of using the Cytoscape Ecosystem?',
+      question: 'What are the main benefits of using Cytoscape?',
       answer: <>
-        The Cytoscape Ecosystem is a free, open-source comprehensive suite of software tools for network biology research, 
+        Cytoscape is a <strong>free</strong>, <strong>open-source</strong> comprehensive suite of software tools for network biology research, 
         encompassing data analysis, visualisation and sharing capabilities. 
-        It is also extensible, meaning the user can customize their usage via <LinkOut href="https://apps.cytoscape.org/">apps</LinkOut> and services. 
-        The Ecosystem is actively being developed to improve and expand functionality.
+        It is also <strong>extensible</strong>, enabling the user to customize their usage via <LinkOut href="https://apps.cytoscape.org/">apps</LinkOut> and services. 
+        Cytoscape functionality is <strong>continuously improved</strong> and expanded as part of ongoing, active development.
       </>,
     },
     {
-      question: 'How does the Cytoscape Ecosystem support data sharing and collaboration?',
+      question: 'How does Cytoscape support data sharing and collaboration?',
       answer: <>
-        The Cytoscape Ecosystem supports data sharing and collaboration through cloud-based sharing and integration of networks, 
-        seamless data exchange between Ecosystem tools and through various training materials.
+        Cytoscape supports sharing of network data via the Network Data Exchange &#40;<LinkOut href="https://www.ndexbio.org/">NDEx</LinkOut>&#41; cloud storage, 
+        enabling users to deposit their networks to NDEx as well as accessing and integrating other published networks. 
+        Networks can also be shared directly using the portable <i>.cys</i> and <LinkOut href="https://cytoscape.org/cx/">CX2</LinkOut> &#40;JSON&#41; file formats, 
+        or in the form of exported publication-quality figures.
       </>,
     },
   ],
   [
     {
-      question: 'How is the Cytoscape Ecosystem addressing the needs of bench biologists?',
+      question: 'How is Cytoscape addressing the needs of bench biologists?',
       answer: <>
-        The Cytoscape ecosystem caters to bench biologists by streamlining common workflows through user-friendly web applications, 
-        providing comprehensive training materials, and facilitating access to pre-analysed data and networks. 
-        By reducing the need for complex data processing and analysis and minimizing the need for programmatic knowledge, 
-        the Cytoscape ecosystem provides easy access to powerful analysis tools for bench biologists.
+        Cytoscape serves bench biologists by streamlining <Link href="https://cytoscape-home.pages.dev/#genes">common analysis workflows</Link> in Cytoscape tools, 
+        providing easy access to powerful analysis methods without the need for complex data processing or programmatic knowledge. 
+        Cytoscape makes it easy to access and utilize pre-analysed data and networks via <LinkOut href="https://www.ndexbio.org/">NDEx</LinkOut>, 
+        and provides comprehensive <LinkOut href="https://github.com/cytoscape/cytoscape-tutorials/wiki">training materials</LinkOut> tailored to bench biologists.
       </>,
     },
     {
-      question: 'What are the future directions for the Cytoscape Ecosystem?',
+      question: 'How is Cytoscape addressing the needs of computational biologists?',
       answer: <>
-        The Cytoscape Ecosystem is evolving towards expanding web-based functionality to support a wider range of user needs; 
-        improving integration with other analysis tools and resources; 
-        and adding support for emerging technologies and analysis types, like single-cell analysis and machine learning.
+        Cytoscape provides programmatic access via the <LinkOut href="https://apps.cytoscape.org/apps/cyrest">cyREST API</LinkOut> and 
+        the <LinkOut href="https://github.com/cytoscape/py4cytoscape">py4cytoscape</LinkOut> Python 
+        and <LinkOut href="https://www.bioconductor.org/packages/release/bioc/html/RCy3.html">RCy3</LinkOut> R libraries, 
+        making it easy to incorporate Cytoscape in programmatic workflows. 
+        To support computational biologists, Cytoscape provides a comprehensive collection of 
+        example <LinkOut href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters">scripts, notebooks and tutorials</LinkOut>.
+      </>,
+    },
+
+    {
+      question: 'How is Cytoscape addressing the needs of software developers?',
+      answer: <>
+        Cytoscape Desktop functionality can be expanded through the use of <LinkOut href="https://apps.cytoscape.org/">apps</LinkOut> to 
+        accommodate specific data types, analysis, visualizations and connections to other tools. 
+        Extensive <LinkOut href="https://github.com/cytoscape/cytoscape/wiki/Cytoscape-3.0-App-Development">documentation and guides</LinkOut> are 
+        available to support software developers. 
+        Cytoscape tools are open-source, and interested developers are encouraged 
+        to <LinkOut href="https://cytoscape.org/documentation_developers.html">join our development community</LinkOut> as contributors. 
       </>,
     },
     {
       question: 'Should I use Cytoscape Desktop or Cytoscape Web?',
       answer: <>
-        The best choice for you depends on your individual analysis needs. 
-        If you are working with large networks, need to be able to work offline, or need access to specific apps to support your analysis, 
-        you should use <LinkOut href="https://cytoscape.org/">Cytoscape Desktop</LinkOut>. 
-        If you are looking for core Cytoscape functionality in an easy-to-use web tool, you should use <LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut>. 
-        Additionally, the Cytoscape ecosystem enables integration between Cytoscape Desktop and Cytoscape Web, 
-        letting you switch between the two applications seamlessly.
-      </>,
-    },
-    {
-      question: 'How can I use the Cytoscape tools to create figures and support data for my paper?',
-      answer: <>
-        Both <LinkOut href="https://cytoscape.org/">Cytoscape Desktop</LinkOut> and <LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut> support 
-        export of high-resolution images &#40;PNG, PDF, etc&#41; from your analysis. 
-        Network figure exports are highly customizable in terms of style and layout. 
-        Other ecosystem web applications &#40;<LinkOut href="https://genemania.org/">GeneMANIA</LinkOut>, <LinkOut href="https://iregulon.org/">iRegulon</LinkOut>&#41; 
-        also support direct export of images, or you can open your network in Cytoscape Web to further customize and improve it before exporting.
+        Choosing a Cytoscape tool depends on your individual analysis needs. 
+        For example, If you are new to Cytoscape and want to use core Cytoscape functionality without having to install anything, 
+        start with <LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut>. 
+        On the other hand, if you are working with large networks, or need access to specialized analysis methods, 
+        or if you want to integrate Cytoscape in programmatic workflows, <LinkOut href="https://cytoscape.org/">Cytoscape Desktop</LinkOut> is the right choice. 
+        The two applications also make it easy to switch between them seamlessly using built-in integration features 
+        and the <LinkOut href="https://cytoscape.org/cx/">CX2</LinkOut> file format.
       </>,
     },
   ],
   [
     {
-      question: 'Can I save my work in the cloud?',
+      question: 'How can I use the Cytoscape tools to create figures and support data for my paper?',
       answer: <>
-        Yes. Cytoscape Desktop, Cytoscape Web and several ecosystem web applications allow you to save your networks and analysis 
-        to the Network Data Exchange &#40;<LinkOut href="https://www.ndexbio.org/">NDEx</LinkOut>&#41;, the primary cloud storage for the Cytoscape Ecosystem.
+        Starting with a network in <LinkOut href="https://cytoscape.org/">Cytoscape Desktop</LinkOut> or <LinkOut href="https://web.cytoscape.org/">Cytoscape Web</LinkOut>, 
+        you can customize its style and layout before exporting high-resolution, publication-ready images in multiple formats &#40;PNG, PDF etc&#41;. 
+        You can also publish your network and analysis directly to the Network Data Exchange &#40;<LinkOut href="https://www.ndexbio.org/">NDEx</LinkOut>&#41;, 
+        and request a DOI to include in your publications. 
+        Other applications &#40;<LinkOut href="https://genemania.org/">GeneMANIA</LinkOut>, <LinkOut href="https://iregulon.org/">iRegulon</LinkOut>&#41; 
+        also support direct export of images, and you can also open your network from these tools in Cytoscape Web to further customize it before exporting.
       </>,
     },
     {
-      question: 'How can I contribute to the Cytoscape Ecosystem?',
+      question: 'Can I save my work in the cloud?',
       answer: <>
-        You can contribute in a number of ways, for example by developing apps or web services that extend the functionality of ecosystem tools 
-        with specialized analysis or access to data resources. 
-        You can also contribute by creating and sharing interactive workflow notebooks in Jupyter/R, and in general by providing feedback and bug reports.
+        Yes. Cytoscape Desktop, Cytoscape Web and several ecosystem web applications allow you to save your networks and analysis 
+        directly to the Network Data Exchange &#40;<LinkOut href="https://www.ndexbio.org/">NDEx</LinkOut>&#41;, the primary cloud storage for Cytoscape.
       </>,
     },
     {
@@ -133,17 +149,17 @@ const faqs = [
         </Citation>
       </>,
     },
-    {
-      question: 'How to donate to Cytoscape?',
-      answer: <>
-        To support the Cytoscape Ecosystem, please donate to the Cytoscape Consortium:
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" className="text-center">
-          <input type="hidden" name="cmd" value="_s-xclick" />
-          <input type="hidden" name="hosted_button_id" value="4D6STRT24649Y" />
-          <input type="submit" value="Donate" alt="PayPal - The safer, easier way to pay online!" className="mt-2 px-8 py-1 border-2 border-white bg-[#ffd140] hover:bg-[#ffe788] active:bg-[#e6d07a] text-[#003087] hover:text-[#0070e0] active:text-white font-bold rounded-full drop-shadow-md cursor-pointer" />
-        </form>
-      </>,
-    },
+    // {
+    //   question: 'How to donate to Cytoscape?',
+    //   answer: <>
+    //     To support the Cytoscape Ecosystem, please donate to the Cytoscape Consortium:
+    //     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" className="text-center">
+    //       <input type="hidden" name="cmd" value="_s-xclick" />
+    //       <input type="hidden" name="hosted_button_id" value="4D6STRT24649Y" />
+    //       <input type="submit" value="Donate" alt="PayPal - The safer, easier way to pay online!" className="mt-2 px-8 py-1 border-2 border-white bg-[#ffd140] hover:bg-[#ffe788] active:bg-[#e6d07a] text-[#003087] hover:text-[#0070e0] active:text-white font-bold rounded-full drop-shadow-md cursor-pointer" />
+    //     </form>
+    //   </>,
+    // },
   ],
 ]
 
@@ -185,7 +201,7 @@ export function Faqs() {
                     <h3 className="text-lg font-semibold leading-6 text-gray-900">
                       {faq.question}
                     </h3>
-                    <p className="mt-4 text-sm text-gray-600">{faq.answer}</p>
+                    <div className="mt-4 text-sm text-gray-600">{faq.answer}</div>
                   </li>
                 ))}
               </ul>

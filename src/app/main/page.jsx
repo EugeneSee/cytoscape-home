@@ -5,8 +5,7 @@ import { Hero } from '@/components/Hero'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { Citations } from '@/components/Citations'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
-import { GenesCTASection } from '@/components/GenesCTASection'
-import { NetworkCTASection } from '@/components/NetworkCTASection'
+import { StartWith } from '@/components/StartWith'
 import { Guide } from '@/components/Guide'
 import { Results } from '@/components/Results'
 import { CompareSection } from '@/components/CompareSection'
@@ -71,8 +70,7 @@ export default function Home({ searchEngine }) {
     <>
       <Hero onGetStarted={handleGetStarted} onSubmit={handleSubmit} />
       {/* <PrimaryFeatures /> */}
-      <GenesCTASection />
-      <NetworkCTASection />
+      <StartWith />
       <CompareSection />
       <SecondaryFeatures />
       {/* <CallToAction onGetStarted={handleGetStarted} /> */}
