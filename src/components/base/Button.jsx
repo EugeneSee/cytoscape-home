@@ -24,13 +24,19 @@ export function Button({ className, ...props }) {
   props.variant ??= 'solid'
   props.color ??= 'gray'
 
+  const getVariantStyle = () => {
+    if (props.variant === 'outline') {
+      return variantStyles.outline[props.color]
+    }
+    if (props.variant === 'solid') {
+      return variantStyles.solid[props.color]
+    }
+    return undefined
+  }
+
   className = clsx(
     baseStyles[props.variant],
-    props.variant === 'outline'
-      ? variantStyles.outline[props.color]
-      : props.variant === 'solid'
-        ? variantStyles.solid[props.color]
-        : undefined,
+    getVariantStyle(),
     className,
   )
 

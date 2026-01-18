@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { geneManiaOrganisms } from '@/app/shared/common'
+import { geneManiaOrganisms, HUMAN_TAXON_ID } from '@/app/shared/common'
 
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/16/solid'
 import { CheckIcon } from '@heroicons/react/20/solid'
@@ -12,7 +12,7 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 export function SearchBar({
   placeholder,
   initialText = '',
-  initialOrganismTaxon = '9606', // Default to human
+  initialOrganismTaxon = HUMAN_TAXON_ID, // Default to human
   showOrganismSelector = false,
   onTextChange,
   onOrganismChange,

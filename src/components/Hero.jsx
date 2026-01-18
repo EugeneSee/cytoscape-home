@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { geneManiaOrganisms } from '@/app/shared/common'
+import { geneManiaOrganisms, HUMAN_TAXON_ID } from '@/app/shared/common'
 import { Container } from '@/components/base/Container'
 import { AppDemo } from '@/components/AppDemo'
 import { BrowserFrame } from '@/components/BrowserFrame'
@@ -11,9 +11,9 @@ import { ArrowDownCircleIcon } from '@heroicons/react/16/solid'
 
 
 const searchExamples = [
-  { label: 'TP53', terms: ['TP53'], taxon: '9606', type: 'gene' },
-  { label: 'breast cancer genes', terms: ['BRCA1', 'BRCA2', 'PALB2', 'CHEK2'], taxon: '9606', type: 'gene' },
-  { label: 'glycolysis', terms: ['glycolysis'], taxon: '9606', type: 'pathway' },
+  { label: 'TP53', terms: ['TP53'], taxon: HUMAN_TAXON_ID, type: 'gene' },
+  { label: 'breast cancer genes', terms: ['BRCA1', 'BRCA2', 'PALB2', 'CHEK2'], taxon: HUMAN_TAXON_ID, type: 'gene' },
+  { label: 'glycolysis', terms: ['glycolysis'], taxon: HUMAN_TAXON_ID, type: 'pathway' },
 ]
 
 
