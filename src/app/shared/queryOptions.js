@@ -1,6 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
 import { NDEx } from '@js4cytoscape/ndex-client'
 import { geneManiaOrganisms } from '@/app/shared/common'
+import { validateGenes } from '../utils/validateGenes'
 
 
 const ndexClient = new NDEx('https://www.ndexbio.org/v2')
@@ -23,13 +24,25 @@ export function createMyGeneInfoQueryOptions(symbols = [], enabled = true) {
 }
 
 export function createGeneManiaQueryOptions(genes = [], organismId = 4, enabled = true) {
-  // Remove duplicates and sort it
   const geneSet = new Set(genes)
   genes = Array.from(geneSet).sort()
+
+  const { isValid, errors, cleaned } = validateGenes(genes)
+
   return queryOptions({
-    queryKey: ['geneManiaNetwork', genes, organismId],
-    queryFn: () => fetchGeneManiaNetwork(genes, organismId),
-    enabled,
+    queryKey: ['geneManiaNetwork', cleaned, organismId],
+    enabled: enabled && isValid,
+    queryFn: () => {
+      if (!isValid) {
+        return Promise.resolve({
+          error: { 
+            message: 'Invalid gene symbols provided.',
+            details: errors
+          }
+        })
+      }
+      return fetchGeneManiaNetwork(cleaned, organismId)
+    },
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
     refetchOnMount: false,
